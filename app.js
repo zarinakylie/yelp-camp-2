@@ -92,32 +92,23 @@ app.use(helmet());
 
 
 const scriptSrcUrls = [
-   "https://stackpath.bootstrapcdn.com/",
-   // "https://api.tiles.mapbox.com/",
-   // "https://api.mapbox.com/",
-   "https://kit.fontawesome.com/",
-   "https://cdnjs.cloudflare.com/",
-   "https://cdn.jsdelivr.net",
-   "https://cdn.maptiler.com/", // add this
+    "https://cdn.jsdelivr.net",
+    "https://unpkg.com/",
 ];
 const styleSrcUrls = [
-   "https://kit-free.fontawesome.com/",
-   "https://stackpath.bootstrapcdn.com/",
-   // "https://api.mapbox.com/",
-   // "https://api.tiles.mapbox.com/",
-   "https://fonts.googleapis.com/",
-   "https://use.fontawesome.com/",
-   "https://cdn.jsdelivr.net",
-   "https://cdn.maptiler.com/", // add this
+    "https://kit-free.fontawesome.com/",
+    "https://stackpath.bootstrapcdn.com/",
+    "https://fonts.googleapis.com/",
+    "https://use.fontawesome.com/",
+    "https://cdn.jsdelivr.net",
+    "https://unpkg.com/",
 ];
 const connectSrcUrls = [
-   "https://api.maptiler.com/",
-   "https://cdn.maptiler.com/",   // ← SDK worker + number/font glyphs
-   "https://cdn.jsdelivr.net",    // ← clears the bootstrap warnings
+    "https://cdn.jsdelivr.net",
+    "https://unpkg.com/",
 ];
-
-
 const fontSrcUrls = [];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -131,14 +122,17 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/djnblmfgn/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                "https://res.cloudinary.com/djnblmfgn/", // ← put your actual Cloudinary cloud name
                 "https://images.unsplash.com/",
+                "https://tile.openstreetmap.org/",
+                "https://*.tile.openstreetmap.org/",
+                "https://unpkg.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
     })
 );
-
+ 
 
 app.use(passport.initialize());
 app.use(passport.session());

@@ -1,18 +1,13 @@
-maptilersdk.config.apiKey = maptilerApiKey;
+const [lng, lat] = campground.geometry.coordinates;
 
-const map = new maptilersdk.Map({
-    container: 'map',
-    style: maptilersdk.MapStyle.BRIGHT,
-    center: campground.geometry.coordinates, // starting position [lng, lat]
-    zoom: 10 // starting zoom
-});
+const map = L.map('map').setView([lat, lng], 10);
 
-new maptilersdk.Marker()
-    .setLngLat(campground.geometry.coordinates)
-    .setPopup(
-        new maptilersdk.Popup({ offset: 25 })
-            .setHTML(
-                `<h3>${campground.title}</h3><p>${campground.location}</p>`
-            )
-    )
-    .addTo(map)
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
+L.marker([lat, lng])
+  .addTo(map)
+  .bindPopup(`<h5>${campground.title}</h5><p>${campground.location}</p>`)
+  .openPopup();
