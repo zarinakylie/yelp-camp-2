@@ -108,11 +108,13 @@ const connectSrcUrls = [
     "https://unpkg.com/",
     "https://nominatim.openstreetmap.org",
 ];
-const fontSrcUrls = [];
-
+const fontSrcUrls = [
+    "https://cdn.jsdelivr.net/",
+];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
+            mediaSrc: ["'self'", "https://cdn.jsdelivr.net"],
             defaultSrc: [],
             connectSrc: ["'self'", ...connectSrcUrls],
             scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],

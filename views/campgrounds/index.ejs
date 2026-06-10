@@ -10,8 +10,7 @@
     <div class="card mb-3" >
         <div class="row">
             <div class="col-md-4">
-              <img class="img-fluid" alt="" src="<%= campground.images[0].url%>">
-            </div>
+<img class="img-fluid" alt="<%= campground.title %>" src="<%= campground.images.length ? campground.images[0].url : 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800' %>">            </div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title"><%= campground.title%></h5>

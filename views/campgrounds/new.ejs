@@ -11,12 +11,15 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="location" name="campground[location]" required>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
+    <label class="form-label" for="location">Location</label>
+    <div class="input-group">
+        <input class="form-control" type="text" id="location" name="campground[location]" required>
+        <button class="btn btn-outline-secondary" type="button" id="location-search" title="Find on map">🔍</button>
+    </div>
+    <div class="valid-feedback">
+        Looks good!
+    </div>
+</div>
 
             <div class="mb-3">
                 <label class="form-label">Pin the exact location on the map</label>
@@ -54,8 +57,9 @@
                 <button class="btn btn-success">Add Campground</button>
             </div>
         </form>
-        <a href="/campgrounds">All Campgrounds</a>
+       <a href="/campgrounds">All Campgrounds</a>
     </div>
 </div>
 
 <script src="/javascripts/pickerMap.js"></script>
+]
