@@ -106,6 +106,7 @@ const styleSrcUrls = [
 const connectSrcUrls = [
     "https://cdn.jsdelivr.net",
     "https://unpkg.com/",
+    "https://nominatim.openstreetmap.org",
 ];
 const fontSrcUrls = [];
 
